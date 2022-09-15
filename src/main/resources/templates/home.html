@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css"
+	rel="stylesheet">
+<link th:href="@{/css/navbar.css}" rel="stylesheet">
+<link th:href="@{/css/home.css}" rel="stylesheet">
+<link th:href="@{/css/pages.css}" rel="stylesheet">
+<link th:href="@{http://fonts.googleapis.com/css?family=Poppins}"
+	rel='stylesheet' type='text/css' />
+<style>
+body {
+	font-family: 'Poppins', serif;
+	font-size: 11pt;
+}
+</style>
+<title>Home</title>
+</head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: navbar"></header>
+
+	<div class="page-content">
+
+		<section class="section-content introduction-section">
+			<h2 class="section-text university-title">Kimberly Co Academy</h2>
+			<p class="section-text white f18">Sede di Roma</p>
+		</section>
+
+		<section class="info-section-content">
+			<div class="row m-0">
+				<div class="col-7 p-3 future-info">
+					<h2 class="fw-500 mb-5">Uno sguardo al futuro</h2>
+					<p class="t-center f18" style="max-width: 70%">Ci impegnamo da
+						sempre affinche' l'istruzione sia accessibile a tutti, servendoci
+						delle tencologie piu' all'avanguardia e offrendo a piu' di 10.000
+						studenti corsi e certificazioni per affrontare al meglio il
+						mercato del lavoro.</p>
+				</div>
+				<div class="col-5 info-image-content future-section"></div>
+			</div>
+		</section>
+
+		<section class="section-content certification-section">
+			<h2 class="section-text certification-title">Certificazioni</h2>
+			<p class="section-text white">Trova la certificazione piu' adatta
+				ai tuoi bisogni</p>
+			<a class="section-button" th:href="@{/certifications}" role="button">Scopri</a>
+		</section>
+
+	</div>
+</body>
+
+</html>

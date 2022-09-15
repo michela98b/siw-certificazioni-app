@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8" />
+<link th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css"
+	rel="stylesheet">
+<link th:href="@{/css/navbar.css}" rel="stylesheet">
+<link th:href="@{/css/pages.css}" rel="stylesheet">
+<link th:href="@{http://fonts.googleapis.com/css?family=Poppins}"
+	rel='stylesheet' type='text/css' />
+<style>
+body {
+	font-family: 'Poppins', serif;
+	font-size: 11pt;
+}
+</style>
+<title>Area riservata</title>
+</head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: navbar"></header>
+
+	<div class="container-fluid page-content">
+		<p class="page-title">Area studente</p>
+		<p class="card-title">Prenotazioni</p>
+
+		<div th:if="${enrollments.size() > 0}">
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Certificazione</th>
+						<th scope="col">Livello</th>
+						<th scope="col">Data prenotazione</th>
+						<th scope="col">Data esame</th>
+						<th scope="col">Aula</th>
+						<th scope="col">Status Prenotazione</th>
+
+						<th></th>
+					</tr>
+				</thead>
+
+				<tbody>
+
+					<tr th:each="e : ${enrollments}">
+
+						<td th:text="${e.exam.getCertification().name}">nome</td>
+						<td th:text="${e.exam.getCertification().level}">livello</td>
+						<td th:text="${e.date}">data</td>
+						<td th:text="${e.exam.date}">data</td>
+						<td th:text="${e.exam.classroom}">aula</td>
+						<td><span th:if="${e.active == true}">Confermata</span> <span
+							th:unless="${e.active == true}" class="red">Annullata</span></td>
+
+						<td><span
+							th:if="${e.active == true && e.exam.date.isAfter(localDate)}">
+								<a th:href="@{'/enrollment/confirm' + '/' + ${e.id}}"><span>Annulla</span></a>
+						</span></td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</div>
+		
+		<div th:unless="${enrollments.size() > 0}">Non ci sono
+			prenotazioni</div>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+.welcome-page {
+	height: 100vh;
+	display: flex;
+	margin: auto;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.welcome-logo {
+	height: 400px;
+	width: 400px
+}
+
+.welcome-button {
+	position: relative;
+	color: #3A539B;
+	text-align: center;
+	border: 1px solid #3A539B;
+	padding: 10px 30px;
+	border-radius: 10px;
+}
+
+.page-content {
+	padding-top: 55px;
+	height: 100vh;
+}
+
+.certification-card {
+	margin: 10px 50px;
+	box-shadow: 2px 2px 4px rgb(0 0 0/ 15%);
+	padding: 10px;
+	border-left: 8px solid #3A539B;
+}
+
+.page-title {
+	text-align: center;
+	font-size: 30px;
+	margin-top: 10px;
+}
+
+.card-title {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.table-title {
+	font-weight: bold;
+	font-size: 22px;
+}
+
+.f16 {
+	font-size: 16px;
+}
+
+.f18{
+	font-size:18px
+}
+
+.fw-500 {
+	font-weight: bold;
+}
+
+.t-center{
+	text-align:center;
+}
+
+.form-title {
+	color: white;
+}
+
+.form-label {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.field-title {
+	font-size: 14px;
+	color: grey;
+}
+
+.certification-title{
+	font-weight:bold;
+	font-size:30px;
+	color:white;
+}
+
+.table-head-button {
+	justify-content: space-between;
+	align-items: center;
+	display: flex;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.cert-title-container {
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+
+.cert-info {
+	justify-content: space-between;
+	padding-right: 30px;
+}
+
+.left-side-container {
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	background-color: #3A539B;
+}
+
+.right-side-container {
+	align-items: center;
+	justify-content: flex-start;
+	display: flex;
+}
+
+
+.form-field {
+	margin-bottom: 20px;
+}
+
+.w-100 {
+	width: 100%
+}
+
+.h-100{
+	height:100%
+}
+
+.scheda-container {
+	height: 80%;
+	width: 50%;
+	overflow: auto;
+	margin: auto;
+	padding: 10px 20px;
+	box-shadow: 0 2px 4px rgb(0 0 0/ 15%);
+	border: 1px solid rgb(0 0 0/ 15%);
+	position: relative;
+}
+
+.scheda-header {
+	font-weight: bold;
+	font-size: 16px;
+	color: #3A539B;
+}
+
+.confirmation-buttons {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	align-items: center;
+}
+
+.exam-card {
+	margin-right: 10px;
+	box-shadow: 0 2px 4px rgb(0 0 0/ 15%);
+}
+
+.delete-actions-row{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.red{
+	color:#f66257
+}
+
+.error-text{
+	font-size:12px;
+	color:red;
+}

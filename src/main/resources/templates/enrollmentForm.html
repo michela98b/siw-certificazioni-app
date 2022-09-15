@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css"
+	rel="stylesheet">
+<link th:href="@{/css/navbar.css}" rel="stylesheet">
+<link th:href="@{/css/pages.css}" rel="stylesheet">
+<link th:href="@{/css/main.css}" rel="stylesheet">
+<link th:href="@{http://fonts.googleapis.com/css?family=Poppins}"
+	rel='stylesheet' type='text/css' />
+<style>
+body {
+	font-family: 'Poppins', serif;
+	font-size: 11pt;
+}
+</style>
+<title>Prenotazione</title>
+</head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: navbar"></header>
+
+	<div class="container-fluid page-content">
+
+		<form th:action="@{/enrollment/save}" method="POST"
+			th:object="${enrollment}" class="w-100 h-100">
+			<div>
+
+				<div class="scheda-container">
+					<p class="scheda-header">Conferma prenotazione</p>
+
+					<div>
+						<span class="field-title">Nome</span>
+						<p th:text="${enrollment.user.nome}">title</p>
+					</div>
+					<div>
+						<span class="field-title">Cognome</span>
+						<p th:text="${enrollment.user.cognome}">title</p>
+					</div>
+
+					<div class="form-field">
+						<label class="field-title">Esame</label>
+						<div>
+							<select name="exam" th:field="*{exam}">
+								<option th:value="${enrollment.exam.getId()}"
+									th:text="${enrollment.exam.getCertification().getName()}"></option>
+							</select>
+						</div>
+					</div>
+
+					<div>
+						<span class="field-title">Data esame</span>
+						<p th:text="${enrollment.exam.date}">title</p>
+					</div>
+
+					<div>
+						<span class="field-title">Aula</span>
+						<p th:text="${enrollment.exam.classroom}">title</p>
+					</div>
+
+					<div>
+						<span class="field-title">Livello</span>
+						<p th:text="${enrollment.exam.getCertification().level}">title</p>
+					</div>
+
+					<div class="confirmation-buttons row m-0">
+						<a th:href="@{/home}" style="margin-right:10px">Annulla</a>
+						<button type="submit">Conferma</button>
+					</div>
+
+				</div>
+			</div>
+		</form>
+
+	</div>
+
+</body>
+
+</html>

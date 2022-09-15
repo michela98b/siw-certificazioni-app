@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/navbar.css}" rel="stylesheet">
+<link th:href="@{/css/home.css}" rel="stylesheet">
+<link th:href="@{/css/pages.css}" rel="stylesheet">
+<link th:href="@{http://fonts.googleapis.com/css?family=Poppins}"
+	rel='stylesheet' type='text/css' />
+<style>
+body {
+	font-family: 'Poppins', serif;
+	font-size: 11pt;
+}
+</style>
+<title>Home</title>
+</head>
+<body>
+
+	<header th:replace="fragments/base.html :: navbar"></header>
+
+	<div class="page-content">
+
+		<div class="row m-0">
+			<div class="col-6 p-0">
+				<section class="section-content certification-section">
+					<h2 class="section-text certification-title">Certificazioni</h2>
+
+					<a class="section-button" th:href="@{/admin/certifications}"
+						role="button">Aggiungi</a>
+				</section>
+			</div>
+			<div class="col-6 p-0">
+				<section class="section-content exam-admin-section">
+					<h2 class="section-text certification-title">Esami</h2>
+					<p class="section-text white">Aggiungi una data d'esame</p>
+					<a class="section-button" th:href="@{/admin/exam}" role="button">Aggiungi</a>
+				</section>
+			</div>
+		</div>
+
+		<section class="section-content students-section">
+			<h2 class="section-text certification-title">Studenti</h2>
+			<p class="section-text white">Visualizza e aggiungi i dati degli
+				studenti</p>
+			<a class="section-button" th:href="@{/admin/students}" role="button">Consulta</a>
+		</section>
+
+	</div>
+</body>
+
+</html>

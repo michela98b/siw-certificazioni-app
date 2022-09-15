@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8" />
+<link th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css"
+	rel="stylesheet">
+<link th:href="@{/css/main.css}" rel="stylesheet">
+<link th:href="@{/css/navbar.css}" rel="stylesheet">
+<link th:href="@{/css/pages.css}" rel="stylesheet">
+<link th:href="@{http://fonts.googleapis.com/css?family=Poppins}"
+	rel='stylesheet' type='text/css' />
+<style>
+body {
+	font-family: 'Poppins', serif;
+	font-size: 11pt;
+}
+</style>
+<title>Studenti</title>
+</head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: navbar"></header>
+	
+	<div class="page-content container-fluid">
+
+		<div class="table-head-button">
+			<div>
+				<span class="table-title">Studenti</span>
+			</div>
+			<a th:href="@{/admin/student}"><button type="submit">Aggiungi
+					studente</button></a>
+		</div>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Nome</th>
+					<th scope="col">Cognome</th>
+
+					<th></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="student : ${students}">
+
+					<td th:text="${student.nome}">nome</td>
+					<td th:text="${student.cognome}" style="width: 30%">descrizione</td>
+
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+</body>
+
+</html>

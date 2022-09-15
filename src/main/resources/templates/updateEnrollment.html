@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link th:href="@{/css/pages.css}" rel="stylesheet">
+<link th:href="@{/css/main.css}" rel="stylesheet">
+<link th:href="@{http://fonts.googleapis.com/css?family=Poppins}"
+	rel='stylesheet' type='text/css' />
+<style>
+body {
+	font-family: 'Poppins', serif;
+	font-size: 11pt;
+}
+</style>
+<title>Conferma cancellazione</title>
+</head>
+
+<body>
+
+	<div class="page-content">
+	
+		<div class="scheda-container">
+		
+			<h1 class="page-title">Conferma di cancellazione</h1>
+			
+			<p class="f16">
+				Sei sicuro di voler annullare la prenotazione <span class="fw-500"
+					th:text="${enrollment.exam.getCertification().name}">nome</span>?
+			</p>
+			
+			<p class="f16">L'operazione è irreversibile. Una volta confermata non potrai
+				più tornare indietro.</p>
+
+			<div class="confirmation-buttons row m-0">
+			
+				<a th:href="@{'/enrollments'}" th:text="Annulla"
+					style="margin-right: 10px">ANNULLA</a> 
+					<a
+					th:href="@{'/enrollment/update' + '/' + ${enrollment.id}}"><button
+						type="submit">Conferma</button></a>
+			</div>
+
+		</div>
+	</div>
+</body>
+
+</html>

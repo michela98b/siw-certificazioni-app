@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css"
+	rel="stylesheet">
+<link th:href="@{/css/navbar.css}" rel="stylesheet">
+<link th:href="@{/css/pages.css}" rel="stylesheet">
+<link th:href="@{/css/home.css}" rel="stylesheet">
+<link th:href="@{http://fonts.googleapis.com/css?family=Poppins}"
+	rel='stylesheet' type='text/css' />
+<style>
+body {
+	font-family: 'Poppins', serif;
+	font-size: 11pt;
+}
+</style>
+<title>Dettaglio certificazione</title>
+</head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: navbar"></header>
+
+	<div class="container-fluid page-content">
+		<div class="row" style="height: 100%">
+
+			<div class="col-4 section-content exam-section" style="height: 100%">
+				<p class="section-text certification-title"
+					th:text="${certification.name}">title</p>
+			</div>
+
+			<div class="col-8" style="padding-top: 30px">
+
+				<div class="row m-0 cert-info">
+					<p th:text="${certification.description}" style="width: 70%">desc</p>
+					<p th:text="${certification.level}" class="f16 fw-500">livello</p>
+				</div>
+
+				<div style="margin-bottom: 20px">
+					<p class="f16 m-0">
+						Prezzo <span th:text="${certification.price}" class="card-title"></span>&#8364
+					</p>
+					<span class="f14 field-title">Pagamento direttamente in sede
+						in data di esame</span>
+				</div>
+
+				<p class="card-title m-0">Esami disponibili</p>
+				<p class="f14 field-title">Si prega di presentarsi muniti di un
+					documento di riconoscimento</p>
+				<div th:if="${certification.exams.size() > 0}">
+
+					<div style="display: flex; flex-direction: row;">
+						<div th:each="e : ${certification.exams}">
+							<div class="card exam-card">
+								<div class="card-body">
+									<p class="fw-500" th:text="${e.date}">data</p>
+									<p th:text="'Aula ' + ${e.classroom}"></p>
+									<a th:href="@{'/enrollment' + '/' + ${e.id}}"><span>Prenota</span></a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div th:unless="${certification.exams.size() > 0}" class="t-center">
+				Al momento non sono disponibili date d'esame per questa certificazione</div>
+
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>

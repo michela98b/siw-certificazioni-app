@@ -1,0 +1,39 @@
+.login-page {
+	width: 100vw;
+	height: 100vh;
+	background-image: url(/images/students2.jpg);
+	background-size: cover;
+}
+
+.login-page::before {
+	content: "";
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	opacity: 0.75;
+	background-color: rgba(58, 83, 155, 0.8);
+}
+
+.login-form {
+	background-color: #ffffff;
+	width: 100%;
+	text-align: center;
+	padding: 25px;
+	border-radius: 5px;
+}
+
+.login-form-content {
+	width: 400px;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	margin: auto;
+	padding-top: 100px;
+	position: relative;
+}
+
+.input-form {
+	margin-bottom: 10px;
+}

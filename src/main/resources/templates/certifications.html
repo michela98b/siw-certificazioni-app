@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8" />
+<link th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css"
+	rel="stylesheet">
+<link th:href="@{/css/navbar.css}" rel="stylesheet">
+<link th:href="@{/css/pages.css}" rel="stylesheet">
+<link th:href="@{http://fonts.googleapis.com/css?family=Poppins}"
+	rel='stylesheet' type='text/css' />
+<style>
+body {
+	font-family: 'Poppins', serif;
+	font-size: 11pt;
+}
+</style>
+<title>Certificazioni</title>
+</head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: navbar"></header>
+
+	<div class="container-fluid page-content">
+		<p class="page-title">Le nostre certificazioni</p>
+
+		<div th:each="cert : ${certifications}">
+			<div class="certification-card">
+				<div class="row m-0" style="justify-content: space-between">
+					<p class="card-title" th:text="${cert.name}">name</p>
+					<p class="f16 fw-500" th:text="${cert.level}">name</p>
+				</div>
+				
+				<p class="f16" th:text="${cert.description}">descrizine</p>
+
+				<a th:href="@{'/certification' + '/' + ${cert.id}}"><span>Scopri
+						di più</span></a>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

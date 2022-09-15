@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css"
+	rel="stylesheet">
+<link th:href="@{/css/pages.css}" rel="stylesheet">
+<link th:href="@{/css/main.css}" rel="stylesheet">
+<link th:href="@{/css/navbar.css}" rel="stylesheet">
+<link th:href="@{http://fonts.googleapis.com/css?family=Poppins}"
+	rel='stylesheet' type='text/css' />
+<style>
+body {
+	font-family: 'Poppins', serif;
+	font-size: 11pt;
+}
+</style>
+<title>Aggiungi esame</title>
+</head>
+<body>
+
+	<header th:replace="fragments/base.html :: navbar"></header>
+	
+	<div class="page-content container-fluid">
+
+		<div class="row" style="height: 100%">
+
+			<div class="col-3 left-side-container">
+				<h4 class="form-title">Nuova data d'esame</h4>
+			</div>
+
+			<div class="col-9 right-side-container">
+
+				<form th:action="@{/admin/addExam}" method="POST"
+					th:object="${exam}" class="w-100">
+
+					<div th:if="${#fields.hasGlobalErrors()}">
+						 
+						<p class="error-text" th:each="err : ${#fields.globalErrors()}"
+							th:text="${err}">...</p>
+					</div>
+
+					<div class="form-field">
+						<label class="form-label">Data </label>
+						<div>
+							<input type="date" th:field="*{date}" class="w-50" />
+						</div>
+						<span class="error-text" th:if="${#fields.hasErrors('date')}"
+							th:errors="*{date}"></span>
+					</div>
+
+					<div class="form-field">
+						<label class="form-label">Certificazione</label>
+						<div>
+							<select name="certification" th:field="*{certification}">
+								<option th:each="c : ${certifications}" th:value="${c.getId()}"
+									th:text="${c.getName()}"></option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-field">
+						<label class="form-label">Aula </label>
+						<div>
+							<input type="text" th:field="*{classroom}" class="w-50" />
+						</div>
+						<span class="error-text" th:if="${#fields.hasErrors('classroom')}"
+							th:errors="*{classroom}"></span>
+					</div>
+
+
+					<div>
+						<span><button type="submit">Salva</button></span>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8" />
+<link th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css"
+	rel="stylesheet">
+<link th:href="@{/css/main.css}" rel="stylesheet">
+<link th:href="@{/css/navbar.css}" rel="stylesheet">
+<link th:href="@{/css/pages.css}" rel="stylesheet">
+<link th:href="@{http://fonts.googleapis.com/css?family=Poppins}"
+	rel='stylesheet' type='text/css' />
+<style>
+body {
+	font-family: 'Poppins', serif;
+	font-size: 11pt;
+}
+</style>
+<title>Certificazioni</title>
+</head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: navbar"></header>
+
+	<div class="page-content container-fluid">
+
+		<div class="table-head-button">
+			<div>
+				<span class="table-title">Certificazioni</span>
+			</div>
+			<a th:href="@{/admin/certification}"><button type="submit">Aggiungi
+					certificazione</button></a>
+		</div>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Nome</th>
+					<th scope="col">Descrizione</th>
+					<th scope="col">Livello</th>
+					<th scope="col">Prezzo</th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="cert : ${certifications}">
+
+					<td th:text="${cert.name}">nome</td>
+					<td th:text="${cert.description}" style="width: 35%">descrizione</td>
+					<td th:text="${cert.level}">livello</td>
+					<td th:text="${cert.price} + '&#8364'">prezzo</td>
+
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8" />
+<link th:href="@{/css/navbar.css}" rel="stylesheet">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+<title>Navbar</title>
+</head>
+
+<body>
+
+	<header>
+
+		<div id="navbar" th:fragment="navbar">
+			<nav class="navbar navbar-expand-lg" th:fragment="navbar">
+
+				<img class="logo-nav" th:src="@{/images/navLogo.png}" />
+
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav">
+
+						<li class="nav-item active">
+							<div sec:authorize="hasAuthority('ADMIN')">
+								<a class="nav-link" th:href="@{/admin/home}">Home</a>
+							</div>
+
+							<div sec:authorize="hasAuthority('DEFAULT')">
+								<a class="nav-link" th:href="@{/home}">Home</a>
+							</div>
+						</li>
+
+						<li class="nav-item active">
+							<div sec:authorize="hasAuthority('ADMIN')">
+								<a class="nav-link" th:href="@{/admin/certifications}">Certificazioni</a>
+							</div>
+
+							<div sec:authorize="hasAuthority('DEFAULT')">
+								<a class="nav-link" th:href="@{/certifications}">Certificazioni</a>
+							</div>
+						</li>
+
+						<li class="nav-item active">
+							<div sec:authorize="hasAuthority('ADMIN')">
+								<a class="nav-link" th:href="@{/admin/exam}">Esami</a>
+							</div>
+						</li>
+
+						<li class="nav-item active">
+							<div sec:authorize="hasAuthority('ADMIN')">
+								<a class="nav-link" th:href="@{/admin/students}">Studenti</a>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+
+				<div class="row user-data">
+
+					<div sec:authorize="hasAuthority('ADMIN')">
+						<span sec:authorize="isAuthenticated()"> <a
+							class="nav-link">[[${#httpServletRequest.remoteUser}]]</a>
+						</span>
+					</div>
+
+					<div sec:authorize="hasAuthority('DEFAULT')">
+						<span sec:authorize="isAuthenticated()"> <a
+							th:href="@{/enrollments}" class="nav-link">[[${#httpServletRequest.remoteUser}]]</a>
+						</span>
+					</div>
+					
+					<img th:src="@{/images/user.png}" style="width: 40px"> <span
+						sec:authorize="isAuthenticated()"> <a th:href="@{/logout}"
+						class="nav-link">Logout</a>
+					</span> <span sec:authorize="!isAuthenticated()"> <a
+						th:href="@{/login}" class="nav-link">Login</a>
+					</span>
+					
+				</div>
+
+			</nav>
+		</div>
+
+	</header>
+
+</body>
+</html>

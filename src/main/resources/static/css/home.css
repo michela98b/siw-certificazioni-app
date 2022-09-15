@@ -1,0 +1,98 @@
+.info-section-content {
+	height: 450px;
+	width: 100%;
+}
+
+.info-image-content{
+	height:450px;
+}
+
+.section-content {
+	position: relative;
+	height: 450px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.section-content::before {
+	content: "";
+	background-size: cover;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	opacity: 0.75;
+	background-color: rgba(58, 83, 155, 0.8);
+}
+
+.section-content:hover::before{
+	background-color: transparent;
+}
+
+.certification-section {
+	background-image: url(/images/cert.jpg);
+	background-size: cover;
+}
+
+.exam-admin-section {
+	background-image: url(/images/exam.jpeg);
+	background-size: cover;
+}
+
+.students-section {
+	background-image: url(/images/students.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+.introduction-section {
+	background-image: url(/images/university2.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+.future-section{
+	background-image: url(/images/building.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+.exam-section {
+	background-image: url(/images/table.jpeg);
+	background-size: cover;
+}
+
+.section-text {
+	position: relative;
+	text-align: center;
+}
+
+.section-button {
+	position: relative;
+	color: #ffffff;
+	text-align: center;
+	border: 1px solid #fff;
+	padding: 10px 30px;
+	border-radius: 10px;
+}
+
+.white{
+	color:white;
+}
+
+.university-title{
+	font-size:45px;
+	font-weight:bold;
+	color:white;
+}
+
+.future-info{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+}

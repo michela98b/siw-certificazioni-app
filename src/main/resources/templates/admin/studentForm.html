@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css"
+	rel="stylesheet">
+<link th:href="@{/css/pages.css}" rel="stylesheet">
+<link th:href="@{/css/main.css}" rel="stylesheet">
+<link th:href="@{/css/navbar.css}" rel="stylesheet">
+<link th:href="@{http://fonts.googleapis.com/css?family=Poppins}"
+	rel='stylesheet' type='text/css' />
+<style>
+body {
+	font-family: 'Poppins', serif;
+	font-size: 11pt;
+}
+</style>
+<title>Aggiungi studente</title>
+</head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: navbar"></header>
+
+	<div class="page-content container-fluid">
+
+		<div class="row" style="height: 100%">
+
+			<div class="col-3 left-side-container">
+				<h4 class="form-title">Nuovo studente</h4>
+			</div>
+
+			<div class="col-9 right-side-container">
+
+				<form th:action="@{/admin/student/save}" method="POST" class="w-100">
+
+					<div th:if="${errors}">
+						 
+						<p class="error-text" th:each="err : errors.globalErrors}"
+							th:text="${err}">...</p>
+					</div>
+
+
+					<div class="form-field">
+						<label class="form-label">Nome </label>
+						<div>
+							<input type="text" th:field="*{student.nome}" class="w-50" />
+						</div>
+						<span class="error-text"
+							th:if="${#fields.hasErrors('student.nome')}"
+							th:errors="*{student.nome}"> </span>
+					</div>
+
+					<div class="form-field">
+						<label class="form-label">Cognome </label>
+						<div>
+							<input type="text" th:field="*{student.cognome}" class="w-50" />
+						</div>
+						<span class="error-text"
+							th:if="${#fields.hasErrors('student.cognome')}"
+							th:errors="*{student.cognome}"></span>
+					</div>
+
+					<div class="form-field">
+						<label class="form-label">Email </label>
+						<div>
+							<input type="text" name="email" th:value="*{email}" class="w-50" />
+						</div>
+						<span class="error-text" th:if="${#fields.hasErrors('email')}"
+							th:errors="*{email}"></span>
+					</div>
+
+					<div>
+						<span><button type="submit">Inserisci</button></span>
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
